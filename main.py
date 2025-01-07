@@ -8,15 +8,15 @@ import pickle
 app = Flask(__name__)   #Object of Flask
 
 # load databases ======
-medication = pd.read_csv('/Users/deepikakala/Documents/Projects/Medicine Suggestion System/dataset/medications.csv')
-description = pd.read_csv('/Users/deepikakala/Documents/Projects/Medicine Suggestion System/dataset/description.csv')
-precautions = pd.read_csv('/Users/deepikakala/Documents/Projects/Medicine Suggestion System/dataset/precautions_df.csv')
-workout = pd.read_csv('/Users/deepikakala/Documents/Projects/Medicine Suggestion System/dataset/workout_df.csv')
-diet = pd.read_csv('/Users/deepikakala/Documents/Projects/Medicine Suggestion System/dataset/diets.csv')
+medication = pd.read_csv('dataset/medications.csv')
+description = pd.read_csv('dataset/description.csv')
+precautions = pd.read_csv('dataset/precautions_df.csv')
+workout = pd.read_csv('dataset/workout_df.csv')
+diet = pd.read_csv('dataset/diets.csv')
 
 # load Model
 
-svc = pickle.load(open("/Users/deepikakala/Documents/Projects/Medicine Suggestion System/models/svc.pkl", 'rb'))
+svc = pickle.load(open("models/svc.pkl", 'rb'))
 
 
 def helper(dis):
@@ -115,5 +115,5 @@ def contact():
     return render_template('contact.html')
 
 
-# if __name__ == "__main__":
-#     app.run(host="0.0.0.0", port=5000, debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
